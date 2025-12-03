@@ -1,0 +1,24 @@
+
+
+<hibernate-configuration>
+    <session-factory>
+        <!-- Connexion MySQL -->
+        <property name="hibernate.connection.driver_class">com.mysql.cj.jdbc.Driver</property>
+        <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/applicationticket</property>
+        <property name="hibernate.connection.username">root</property>
+        <property name="hibernate.connection.password"></property>
+
+        <!-- Dialecte SQL -->
+<property name="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</property>
+
+        <!-- Afficher SQL -->
+        <property name="hibernate.show_sql">true</property>
+        <property name="hibernate.format_sql">true</property>
+
+        <!-- Création automatique des tables -->
+        <property name="hibernate.hbm2ddl.auto">update</property>
+
+        <!-- Mapping des classes -->
+        <!-- <mapping class="com.tonpackage.Ticket"/> -->
+    </session-factory>
+</hibernate-configuration>
