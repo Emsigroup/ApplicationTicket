@@ -1,4 +1,4 @@
-package GUI;
+package controller;
 
 public class Client {
 

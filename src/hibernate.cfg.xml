@@ -18,7 +18,18 @@
         <!-- Création automatique des tables -->
         <property name="hibernate.hbm2ddl.auto">update</property>
 
-        <!-- Mapping des classes -->
-        <!-- <mapping class="com.tonpackage.Ticket"/> -->
+           <!-- Mapping des classes -->
+        <!-- MAPPING UTILISATEUR -->
+        <mapping class="model.Utilisateur"/>
+        <!-- MAPPING ADMIN -->
+        <mapping class="model.Admin"/>
+        <!-- MAPPING CLIENT -->
+        <mapping class="model.Client"/>
+        <!-- MAPPING TECHNICIEN -->
+        <mapping class="model.Technicien"/>
+        <!-- MAPPING TICKET -->
+        <mapping class="model.Ticket"/>
+        <!-- MAPPING RAPPORT -->
+        <mapping class="model.Rapport"/>
     </session-factory>
 </hibernate-configuration>
