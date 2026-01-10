@@ -22,6 +22,9 @@ public class Client extends Utilisateur {
   	}
   //-------------------GETTERS && SETTERS-----------
   	//---------MESTICKET-----------
+    
+    
+   
   	
   	public void setMestickets(List<Ticket> mestickets ) {
   		this.mestickets=mestickets;

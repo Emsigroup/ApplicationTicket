@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
+<?import java.lang.String?>
+<?import javafx.scene.chart.AreaChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Dashboard">
+   <children>
+      <AnchorPane fx:id="main_form" prefHeight="200.0" prefWidth="200.0">
+         <children>
+            <BorderPane layoutX="142.0" layoutY="171.0" prefHeight="600.0" prefWidth="1100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <top>
+                  <AnchorPane prefHeight="45.0" prefWidth="200.0" styleClass="semi-top-form" stylesheets="@../css/client.css" BorderPane.alignment="CENTER">
+                     <children>
+                        <AnchorPane layoutY="-86.0" prefHeight="35.0" prefWidth="1100.0" styleClass="top-form" stylesheets="@../css/client.css" AnchorPane.bottomAnchor="11.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <FontAwesomeIcon glyphName="TICKET" layoutX="20.0" layoutY="24.0" />
+                              <Label layoutX="50.0" layoutY="11.0" text="APPLICATION TICKET INFORMATIQUE">
+                                 <font>
+                                    <Font name="Tahoma" size="14.0" />
+                                 </font>
+                              </Label>
+                              <Button fx:id="close" layoutX="1025.0" layoutY="7.0" mnemonicParsing="false" onAction="#close" prefHeight="24.0" prefWidth="56.0" styleClass="close" stylesheets="@../css/client.css" AnchorPane.bottomAnchor="7.0" AnchorPane.rightAnchor="2.0" AnchorPane.topAnchor="2.0">
+                                 <graphic>
+                                    <FontAwesomeIcon glyphName="CLOSE" size="1.2em" text="" />
+                                 </graphic>
+                              </Button>
+                              <Button fx:id="minimize" layoutX="1000.0" layoutY="2.0" mnemonicParsing="false" onAction="#minimize" prefHeight="24.0" prefWidth="42.0" styleClass="minimize" stylesheets="@../css/client.css" AnchorPane.rightAnchor="58.0">
+                                 <graphic>
+                                    <FontAwesomeIcon glyphName="MINUS" />
+                                 </graphic>
+                              </Button>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </AnchorPane>
+               </top>
+               <left>
+                  <AnchorPane prefHeight="555.0" prefWidth="250.0" BorderPane.alignment="CENTER">
+                     <children>
+                        <AnchorPane layoutX="14.0" layoutY="142.0" prefHeight="555.0" prefWidth="250.0" stylesheets="@../css/client.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <FontAwesomeIcon fill="WHITE" glyphName="USER" layoutX="87.0" layoutY="134.0" size="8em" />
+                              <Label layoutX="90.0" layoutY="148.0" text="Welcome" textFill="WHITE">
+                                 <font>
+                                    <Font name="Tahoma" size="17.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="nom_admin" alignment="CENTER" layoutX="6.0" layoutY="180.0" prefHeight="23.0" prefWidth="236.0" text="Adn" textFill="#772d8d">
+                                 <font>
+                                    <Font name="Arial Bold" size="20.0" />
+                                 </font>
+                              </Label>
+                              <Line endX="100.0" layoutX="125.0" layoutY="220.0" startX="-100.0" stroke="WHITE" />
+                              <Button fx:id="dashboard_btn" layoutX="30.0" layoutY="243.0" mnemonicParsing="false" onAction="#switchForm" prefHeight="38.0" prefWidth="189.0" styleClass="nav-btn" stylesheets="@../css/client.css" text="Dashboard" textFill="WHITE" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="31.0">
+                                 <graphic>
+                                    <FontAwesomeIcon fill="WHITE" glyphName="DASHBOARD" size="1.5em" text="" />
+                                 </graphic>
+                              </Button>
+                              <Button fx:id="ticket_btn" layoutX="30.0" layoutY="293.0" mnemonicParsing="false" onAction="#switchForm" prefHeight="38.0" prefWidth="189.0" styleClass="nav-btn" stylesheets="@../css/client.css" text="Voir Ticket" textFill="WHITE" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="31.0">
+                                 <graphic>
+                                    <FontAwesomeIcon fill="WHITE" glyphName="EYE" size="1.5em" text="" />
+                                 </graphic>
+                              </Button>
+                              <Button fx:id="logout" layoutX="14.0" layoutY="501.0" mnemonicParsing="false" onAction="#logout" stylesheets="@../css/client.css" AnchorPane.topAnchor="513.0">
+                                 <graphic>
+                                    <FontAwesomeIcon fill="WHITE" glyphName="SIGN_OUT" size="2em" text="" />
+                                 </graphic>
+                                 <styleClass>
+                                    <String fx:value="logout-btn" />
+                                    <String fx:value="shadow" />
+                                    <String fx:value="shadow" />
+                                 </styleClass>
+                              </Button>
+                              <Label layoutX="76.0" layoutY="521.0" text="Singn-out" textFill="WHITE" AnchorPane.topAnchor="521.0">
+                                 <font>
+                                    <Font name="Tahoma" size="14.0" />
+                                 </font>
+                              </Label>
+                              <Button fx:id="Add_members_Btn" layoutX="30.0" layoutY="344.0" mnemonicParsing="false" onAction="#switchForm" prefHeight="38.0" prefWidth="189.0" styleClass="nav-btn" stylesheets="@../css/client.css" text="Add members" textFill="WHITE">
+                                 <graphic>
+                                    <FontAwesomeIcon fill="WHITE" glyphName="PLUS_CIRCLE" size="1.5em" text="" />
+                                 </graphic>
+                              </Button>
+                           </children>
+                           <styleClass>
+                              <String fx:value="nav-form" />
+                              <String fx:value="shadow" />
+                           </styleClass>
+                        </AnchorPane>
+                     </children>
+                  </AnchorPane>
+               </left>
+               <center>
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                     <children>
+                        <AnchorPane fx:id="dashboard_form" layoutX="65.0" layoutY="58.0" prefHeight="555.0" prefWidth="850.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <AnchorPane layoutX="17.0" layoutY="14.0" prefHeight="339.0" prefWidth="822.0" stylesheets="@../css/client.css">
+                                 <children>
+                                    <AreaChart fx:id="dashboard_chart" layoutY="6.0" prefHeight="357.0" prefWidth="799.0" title="Nombre Ticket Total" AnchorPane.bottomAnchor="6.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="6.0">
+                                      <xAxis>
+                                        <CategoryAxis side="BOTTOM" />
+                                      </xAxis>
+                                      <yAxis>
+                                        <NumberAxis side="LEFT" />
+                                      </yAxis>
+                                    </AreaChart>
+                                 </children>
+                                 <styleClass>
+                                    <String fx:value="white-bg" />
+                                    <String fx:value="shadow" />
+                                 </styleClass>
+                              </AnchorPane>
+                              <AnchorPane layoutX="17.0" layoutY="372.0" prefHeight="169.0" prefWidth="822.0" stylesheets="@../css/client.css">
+                                 <styleClass>
+                                    <String fx:value="white-bg" />
+                                    <String fx:value="shadow" />
+                                 </styleClass>
+                                 <children>
+                                    <AnchorPane layoutX="14.0" layoutY="14.0" prefHeight="142.0" prefWidth="245.0" stylesheets="@../css/client.css">
+                                       <styleClass>
+                                          <String fx:value="nav-form" />
+                                          <String fx:value="card" />
+                                       </styleClass>
+                                       <children>
+                                          <FontAwesomeIcon fill="WHITE" glyphName="CHECK" layoutX="8.0" layoutY="92.0" size="5em" />
+                                          <Label layoutX="84.0" layoutY="92.0" text="Ticket Traité" textFill="WHITE">
+                                             <font>
+                                                <Font name="Tahoma" size="14.0" />
+                                             </font>
+                                          </Label>
+                                          <Label alignment="CENTER_RIGHT" layoutX="76.0" layoutY="14.0" prefHeight="23.0" prefWidth="160.0" text="0" textFill="WHITE">
+                                             <font>
+                                                <Font name="Arial Bold" size="20.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </AnchorPane>
+                                    <AnchorPane layoutX="289.0" layoutY="14.0" prefHeight="142.0" prefWidth="245.0" stylesheets="@../css/client.css">
+                                       <styleClass>
+                                          <String fx:value="nav-form" />
+                                          <String fx:value="card" />
+                                       </styleClass>
+                                       <children>
+                                          <Label layoutX="78.0" layoutY="92.0" text="Ticket Non traité" textFill="WHITE">
+                                             <font>
+                                                <Font name="Tahoma" size="14.0" />
+                                             </font>
+                                          </Label>
+                                          <Label alignment="CENTER_RIGHT" layoutX="78.0" layoutY="14.0" prefHeight="23.0" prefWidth="160.0" text="0" textFill="WHITE">
+                                             <font>
+                                                <Font name="Arial Bold" size="20.0" />
+                                             </font>
+                                          </Label>
+                                          <FontAwesomeIcon fill="WHITE" glyphName="CLOSE" layoutX="14.0" layoutY="92.0" size="5em" text="" />
+                                       </children>
+                                    </AnchorPane>
+                                    <AnchorPane layoutX="563.0" layoutY="14.0" prefHeight="142.0" prefWidth="245.0" stylesheets="@../css/client.css">
+                                       <styleClass>
+                                          <String fx:value="nav-form" />
+                                          <String fx:value="card" />
+                                       </styleClass>
+                                       <children>
+                                          <Label layoutX="97.0" layoutY="92.0" text="Total Ticket" textFill="WHITE">
+                                             <font>
+                                                <Font name="Tahoma" size="14.0" />
+                                             </font>
+                                          </Label>
+                                          <Label alignment="CENTER_RIGHT" layoutX="82.0" layoutY="14.0" prefHeight="23.0" prefWidth="160.0" text="0" textFill="WHITE">
+                                             <font>
+                                                <Font name="Arial Bold" size="20.0" />
+                                             </font>
+                                          </Label>
+                                          <FontAwesomeIcon fill="WHITE" glyphName="BAR_CHART" layoutX="14.0" layoutY="92.0" size="5em" />
+                                       </children>
+                                    </AnchorPane>
+                                 </children>
+                              </AnchorPane>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane fx:id="ticket_form" layoutX="122.0" layoutY="164.0" prefHeight="555.0" prefWidth="850.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <AnchorPane layoutX="14.0" layoutY="14.0" prefHeight="225.0" prefWidth="822.0" stylesheets="@../css/client.css">
+                                 <styleClass>
+                                    <String fx:value="white-bg" />
+                                    <String fx:value="shadow" />
+                                 </styleClass>
+                                 <children>
+                                    <Label layoutX="14.0" layoutY="65.0" text="Titre Ticket : " AnchorPane.leftAnchor="14.0" />
+                                    <Label layoutX="14.0" layoutY="107.0" text="Description : " />
+                                    <TextArea fx:id="description" layoutX="111.0" layoutY="104.0" prefHeight="66.0" prefWidth="200.0" styleClass="textfield" stylesheets="@../css/client.css" AnchorPane.leftAnchor="111.0" AnchorPane.topAnchor="104.0" />
+                                    <Button fx:id="update_ticket" layoutX="641.0" layoutY="32.0" mnemonicParsing="false" onAction="#updateTicket" prefHeight="39.0" prefWidth="65.0" styleClass="update-btn" stylesheets="@../css/client.css" text="Update" />
+                                    <Label layoutX="330.0" layoutY="35.0" text="Priorité :" />
+                                    <ComboBox fx:id="priorite" layoutX="437.0" layoutY="24.0" prefWidth="150.0" promptText="Choose..." styleClass="textfield" stylesheets="@../css/client.css" />
+                                    <Label layoutX="330.0" layoutY="74.0" text="Status :" />
+                                    <ComboBox fx:id="status" layoutX="437.0" layoutY="65.0" prefWidth="150.0" promptText="Choose..." styleClass="textfield" stylesheets="@../css/client.css" />
+                                    <Label layoutX="328.0" layoutY="118.0" text=" Nom Technicien :" />
+                                    <ComboBox fx:id="technicien" layoutX="437.0" layoutY="113.0" prefWidth="150.0" promptText="Choose..." styleClass="textfield" stylesheets="@../css/client.css" />
+                                    <Label layoutX="14.0" layoutY="26.0" text="Nom Client " />
+                                    <TextField fx:id="titre" layoutX="112.0" layoutY="66.0" styleClass="textfield" stylesheets="@../css/client.css" />
+                                    <TextField fx:id="client" layoutX="112.0" layoutY="21.0" styleClass="textfield" stylesheets="@../css/client.css" />
+                                    <TextField fx:id="specialite" layoutX="437.0" layoutY="157.0" styleClass="textfield" stylesheets="@../css/client.css" />
+                                    <Label layoutX="333.0" layoutY="162.0" text="Spécialité : " />
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane layoutX="14.0" layoutY="252.0" prefHeight="289.0" prefWidth="822.0" stylesheets="@../css/client.css">
+                                 <styleClass>
+                                    <String fx:value="white-bg" />
+                                    <String fx:value="shadow" />
+                                 </styleClass>
+                                 <children>
+                                    <TableView fx:id="table_data" layoutX="16.0" layoutY="23.0" prefHeight="239.0" prefWidth="793.0" stylesheets="@../css/client.css">
+                                      <columns>
+                                        <TableColumn fx:id="ticket_col_id" prefWidth="49.0" text="Ticket Id " />
+                                        <TableColumn fx:id="client_col" prefWidth="67.0" text="Client " />
+                                          <TableColumn fx:id="technicien_col" prefWidth="59.0" text="Technicien " />
+                                          <TableColumn fx:id="titre_col" prefWidth="166.0" text="Titre Ticket" />
+                                          <TableColumn fx:id="description_col" prefWidth="123.0" text="Description" />
+                                          <TableColumn fx:id="priorite_col" prefWidth="92.0" text="Priorité" />
+                                          <TableColumn fx:id="status_col" prefWidth="117.0" text="Status" />
+                                          <TableColumn fx:id="date_creation_col" prefWidth="119.0" text="Date Création " />
+                                      </columns>
+                                       <styleClass>
+                                          <String fx:value="column-header" />
+                                          <String fx:value="table-view" />
+                                          <String fx:value="column-header-background" />
+                                          <String fx:value="table-column" />
+                                       </styleClass>
+                                    </TableView>
+                                 </children>
+                              </AnchorPane>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </AnchorPane>
+               </center>
+            </BorderPane>
+         </children>
+      </AnchorPane>
+   </children>
+</StackPane>

@@ -18,7 +18,8 @@ public class Ticket {
 	private Date datecreation;
 	   @Enumerated(EnumType.STRING)
 	private Status status ;
-	private String priorite;
+	   @Enumerated(EnumType.STRING)
+	private Priorite priorite;
 	
 	//------------FK--------------
 	 @OneToOne(mappedBy = "ticket", cascade = CascadeType.ALL, orphanRemoval = true)
@@ -38,7 +39,7 @@ public class Ticket {
 		
 	
 	//--------------------CONSTRUCTEUR----------------
-		public Ticket( int id , String titre , String description , Date datecreation , Status status ,  String priorite , Rapport rapport , Client client , Technicien technicien){
+		public Ticket( int id , String titre , String description , Date datecreation , Status status ,  Priorite priorite , Rapport rapport , Client client , Technicien technicien){
 			this.id=id;
 			this.titre=titre;
 			this.description=description;
@@ -99,10 +100,10 @@ public class Ticket {
 		
 		//--------PRIOTITE----------
 		
-		public void setPriorite(String priorite ) {
+		public void setPriorite(Priorite priorite ) {
 			this.priorite=priorite;
 		}
-		public String getPriorite() {
+		public Priorite getPriorite() {
 			return priorite;
 		}
 		
@@ -134,7 +135,13 @@ public class Ticket {
 			return technicien;
 		}
 		
-		
+		public String getNomClient() {
+		    return client != null ? client.getNom() + " " + client.getPrenom() : "Non défini";
+		}
+
+		public String getNomTechnicien() {
+		    return technicien != null ? technicien.getNom() + " " + technicien.getPrenom() : "Non défini";
+		}
 		
 		
 		
