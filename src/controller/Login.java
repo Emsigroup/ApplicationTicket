@@ -123,6 +123,19 @@ public class Login implements Initializable  {
 	 	                stage.show();
 	                }
 	                else {
+	                	 // Récupération de l'ID du technicien
+	                    int techId = result.getInt("id");
+
+	                    // Créer un objet Technicien avec les données du résultat
+	                    model.Technicien tech = new model.Technicien();
+	                    tech.setId(techId);
+	                    tech.setNom(result.getString("nom"));
+	                    tech.setPrenom(result.getString("prenom"));
+	                    tech.setEmail(result.getString("email"));
+	                    // ... récupère tous les champs nécessaires selon ton modèle
+
+	                    // Stocker dans UserSession
+	                    utils.UserSession.setTechnicien(tech);
 	                alert = new Alert(AlertType.INFORMATION);
 	                alert.setTitle("Information Message");
 	                alert.setHeaderText(null);
@@ -131,7 +144,7 @@ public class Login implements Initializable  {
 
 	                loginbtn.getScene().getWindow().hide();
 
-	                Parent root = FXMLLoader.load(getClass().getResource("/fxml/client.fxml"));
+	                Parent root = FXMLLoader.load(getClass().getResource("/fxml/technicien.fxml"));
 	                Stage stage = new Stage();
 	                Scene scene = new Scene(root);
 

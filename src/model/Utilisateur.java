@@ -1,4 +1,6 @@
 package model;
+
+
 import javax.persistence.*;
 
 @Entity
@@ -19,8 +21,8 @@ public class Utilisateur {
 	   @Enumerated(EnumType.STRING)
 	private Role role;
 	 //------------FK---------------------
-		 @ManyToOne
-		    @JoinColumn(name = "idAdmin") 
+	   @ManyToOne(fetch = FetchType.LAZY)
+	   @JoinColumn(name = "idAdmin", nullable = true)
 	private Admin createur;
 	
 	//--------------------CONSTRUCTEUR POUR HIBERNATE ----------------

@@ -16,10 +16,10 @@ public class Admin extends Utilisateur {
   	public Admin(){}
   	
   //--------------------CONSTRUCTEUR----------------
-    public Admin( int id, String nom, String prenom, String email, String motdepasse, Role role ,Admin createur ,List<Utilisateur> ListeCompteCree){
-    	super( id,  nom,  prenom,  email,  motdepasse,  role , null);
-  		this.ListeCompteCree=ListeCompteCree;
-  		
+  	public Admin(int id, String nom, String prenom, String email, String motdepasse, Role role, Admin createur, List<Utilisateur> ListeCompteCree){
+  	    // Pour Admin lui-même, createur doit toujours être null !
+  	    super(id, nom, prenom, email, motdepasse, role, null);
+  	    this.ListeCompteCree = ListeCompteCree != null ? ListeCompteCree : new ArrayList<>();
   	}
 
 

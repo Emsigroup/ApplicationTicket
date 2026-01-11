@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="statusLabel" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="150.0" prefWidth="350.0" stylesheets="@../css/DashboardTechnicien.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.TicketCardController">
+   <children>
+      <Label fx:id="titreticket_card" alignment="CENTER" layoutX="10" layoutY="15" prefHeight="45" prefWidth="330" styleClass="title-label" stylesheets="@../css/DashboardTechnicien.css" text="Titre" textAlignment="CENTER" textFill="#fffbfb">
+         <font>
+            <Font name="Tahoma" size="24.0" />
+         </font>
+      </Label>
+      <HBox alignment="CENTER" layoutX="25" layoutY="75" prefHeight="50" prefWidth="300" spacing="80" stylesheets="@../css/DashboardTechnicien.css">
+         <children>
+            <Label fx:id="priorite" alignment="CENTER" styleClass="text-label" stylesheets="@../css/DashboardTechnicien.css" text="Priorité" textFill="#fffafa">
+               <font>
+                  <Font name="Berlin Sans FB" size="18" />
+               </font>
+            </Label>
+            <Label fx:id="status" alignment="CENTER" styleClass="text-label" stylesheets="@../css/DashboardTechnicien.css" text="Status" textFill="#fffafa">
+               <font>
+                  <Font name="Berlin Sans FB" size="18" />
+               </font>
+            </Label>
+         </children>
+      </HBox>         
+   </children>
+   <styleClass>
+      <String fx:value="card" />
+      <String fx:value="shadow" />
+   </styleClass>
+</AnchorPane>

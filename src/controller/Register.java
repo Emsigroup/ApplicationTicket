@@ -60,98 +60,103 @@ public class Register implements Initializable  {
     private PreparedStatement  prepare;
     
     @FXML
+    void register() {
+        String pre = prenom.getText().trim();
+        String name = nom.getText().trim();
+        String userEmail = email.getText().trim();
+        String pass = password.getText().trim();
+
+        // Déterminer le rôle
+        String role = "";
+        if (radioclient.isSelected()) {
+            role = "CLIENT";
+        } else if (radiotechnicien.isSelected()) {
+            role = "TECHNICIEN";
+        } else if (radioadmin.isSelected()) {
+            role = "ADMIN";
+        }
     
-    void register( ) {
-    	String pre=prenom.getText();
-    	String name=nom.getText();
-    	String user=email.getText();
-    	String pass=password.getText();
-    	
-    	 // Récupérer le rôle sélectionné
-       // String role = radioclient.isSelected() ? "Client" : "Admin" ;
-    	String role="";
-        if(radioclient.isSelected()) {
-        	role = "client";
-        }else if (radiotechnicien.isSelected()){
-        	role = "Technicien";
-        }else if ( radioadmin.isSelected()) {
-        	role = "Admin";
+        connect = ConnectionDb.ConnectDb();
+        PreparedStatement prepareUser = null;
+
+        try {
+            // 1️⃣ Insérer dans la table Utilisateur
+            String sqlUser = "INSERT INTO utilisateur (prenom, nom, email, motdepasse, role, idAdmin) VALUES (?, ?, ?, ?, ?, ?)";
+            prepareUser = connect.prepareStatement(sqlUser, PreparedStatement.RETURN_GENERATED_KEYS);
+
+            prepareUser.setString(1, pre);
+            prepareUser.setString(2, name);
+            prepareUser.setString(3, userEmail);
+            prepareUser.setString(4, pass);
+            prepareUser.setString(5, role);
+
+            if (role.equalsIgnoreCase("admin")) {
+                prepareUser.setNull(6, java.sql.Types.INTEGER); // Admin → idAdmin = NULL
+            } else {
+                prepareUser.setInt(6, Session.adminId); // Client ou Technicien
+            }
+
+            int row = prepareUser.executeUpdate();
+            if (row > 0) {
+                ResultSet rs = prepareUser.getGeneratedKeys();
+                int userId = 0;
+                if (rs.next()) {
+                    userId = rs.getInt(1); // ID du nouvel utilisateur
+                }
+
+                // 2️⃣ Insertion spécifique selon le rôle
+                insertByRole(userId, role);
+
+                Alert alert = new Alert(AlertType.INFORMATION);
+                alert.setTitle("Succès");
+                alert.setHeaderText(null);
+                alert.setContentText(role + " créé avec succès !");
+                alert.showAndWait();
+
+                // 3️⃣ Retour au login
+                Parent root = FXMLLoader.load(getClass().getResource("/fxml/login.fxml"));
+                Stage stage = new Stage();
+                stage.setScene(new Scene(root));
+                stage.show();
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            Alert alert = new Alert(AlertType.ERROR);
+            alert.setTitle("Erreur");
+            alert.setHeaderText(null);
+            alert.setContentText("Erreur lors de l'enregistrement : " + e.getMessage());
+            alert.showAndWait();
         }
-
-     String sqlUser = "INSERT INTO utilisateur (prenom, nom, email, motdepasse, role, idAdmin) VALUES (?, ?, ?, ?, ?,?)";
-
-connect = ConnectionDb.ConnectDb();
-
-try {
-    prepare = connect.prepareStatement(sqlUser, PreparedStatement.RETURN_GENERATED_KEYS);
-
-    prepare.setString(1, pre);
-    prepare.setString(2, name);
-    prepare.setString(3, user);
-    prepare.setString(4, pass);
-    prepare.setString(5, role);
-    prepare.setInt(6, Session.adminId); 
-
-
-    int row = prepare.executeUpdate();
-
-    if (row > 0) {
-
-       
-        ResultSet rs = prepare.getGeneratedKeys();
-        int userId = 0;
-        if (rs.next()) {
-            userId = rs.getInt(1);
-        }
-
-        // 🔽 Insérer selon le rôle
-        insertByRole(userId, role);
-
-        Alert alert = new Alert(AlertType.INFORMATION);
-        alert.setTitle("Succès");
-        alert.setHeaderText(null);
-        alert.setContentText("Utilisateur enregistré avec succès !");
-        alert.showAndWait();
-
-        Parent root = FXMLLoader.load(getClass().getResource("/fxml/login.fxml"));
-        Stage stage = new Stage();
-        stage.setScene(new Scene(root));
-        stage.show();
     }
 
-} catch (Exception e) {
-    e.printStackTrace();
-}
-
-}
-   
+    // Méthode pour créer Admin, Client ou Technicien
     private void insertByRole(int userId, String role) throws Exception {
         String sql = "";
+        PreparedStatement ps = null;
 
         if (role.equalsIgnoreCase("client")) {
             sql = "INSERT INTO client (id) VALUES (?)";
+            ps = connect.prepareStatement(sql);
+            ps.setInt(1, userId);
 
         } else if (role.equalsIgnoreCase("technicien")) {
             sql = "INSERT INTO technicien (id, specialite) VALUES (?, ?)";
+            ps = connect.prepareStatement(sql);
+            ps.setInt(1, userId);
+            String spec = specialite.getText().trim();
+            if (spec.isEmpty()) spec = "Non définie";
+            ps.setString(2, spec);
 
         } else if (role.equalsIgnoreCase("admin")) {
             sql = "INSERT INTO admin (id) VALUES (?)";
-        }
-
-        PreparedStatement ps = connect.prepareStatement(sql);
-        ps.setInt(1, userId);
-
-        // cas technicien → champ spécialité
-        if (role.equalsIgnoreCase("technicien")) {
-            String spec = specialite.getText().trim();
-            if (spec.isEmpty()) {
-                spec = "Non définie"; // valeur par défaut si vide
-            }
-            ps.setString(2, spec);
+            ps = connect.prepareStatement(sql);
+            ps.setInt(1, userId);
         }
 
         ps.executeUpdate();
     }
+
 
     public void exit() {
     	System.exit(0);

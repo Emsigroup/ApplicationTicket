@@ -108,16 +108,16 @@
                <center>
                   <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                      <children>
-                        <AnchorPane fx:id="dashboard_form" layoutX="65.0" layoutY="58.0" prefHeight="555.0" prefWidth="850.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <AnchorPane fx:id="dashboard_form" layoutX="65.0" layoutY="58.0" prefHeight="555.0" prefWidth="850.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                            <children>
                               <AnchorPane layoutX="17.0" layoutY="14.0" prefHeight="339.0" prefWidth="822.0" stylesheets="@../css/client.css">
                                  <children>
                                     <AreaChart fx:id="dashboard_chart" layoutY="6.0" prefHeight="357.0" prefWidth="799.0" title="Nombre Ticket Total" AnchorPane.bottomAnchor="6.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="6.0">
                                       <xAxis>
-                                        <CategoryAxis side="BOTTOM" />
+                                        <CategoryAxis  fx:id="xAxis" side="BOTTOM" />
                                       </xAxis>
                                       <yAxis>
-                                        <NumberAxis side="LEFT" />
+                                        <NumberAxis   fx:id="yAxis" side="LEFT" />
                                       </yAxis>
                                     </AreaChart>
                                  </children>
@@ -144,7 +144,7 @@
                                                 <Font name="Tahoma" size="14.0" />
                                              </font>
                                           </Label>
-                                          <Label alignment="CENTER_RIGHT" layoutX="76.0" layoutY="14.0" prefHeight="23.0" prefWidth="160.0" text="0" textFill="WHITE">
+                                          <Label fx:id="labelTicketFerme" alignment="CENTER_RIGHT" layoutX="76.0" layoutY="14.0" prefHeight="23.0" prefWidth="160.0" text="0" textFill="WHITE">
                                              <font>
                                                 <Font name="Arial Bold" size="20.0" />
                                              </font>
@@ -162,7 +162,7 @@
                                                 <Font name="Tahoma" size="14.0" />
                                              </font>
                                           </Label>
-                                          <Label alignment="CENTER_RIGHT" layoutX="78.0" layoutY="14.0" prefHeight="23.0" prefWidth="160.0" text="0" textFill="WHITE">
+                                          <Label fx:id="labelTicketNonTraite" alignment="CENTER_RIGHT" layoutX="78.0" layoutY="14.0" prefHeight="23.0" prefWidth="160.0" text="0" textFill="WHITE">
                                              <font>
                                                 <Font name="Arial Bold" size="20.0" />
                                              </font>
@@ -181,7 +181,7 @@
                                                 <Font name="Tahoma" size="14.0" />
                                              </font>
                                           </Label>
-                                          <Label alignment="CENTER_RIGHT" layoutX="82.0" layoutY="14.0" prefHeight="23.0" prefWidth="160.0" text="0" textFill="WHITE">
+                                          <Label fx:id="labelTotalTicket" alignment="CENTER_RIGHT" layoutX="82.0" layoutY="14.0" prefHeight="23.0" prefWidth="160.0" text="0" textFill="WHITE">
                                              <font>
                                                 <Font name="Arial Bold" size="20.0" />
                                              </font>
@@ -193,7 +193,7 @@
                               </AnchorPane>
                            </children>
                         </AnchorPane>
-                        <AnchorPane fx:id="ticket_form" layoutX="122.0" layoutY="164.0" prefHeight="555.0" prefWidth="850.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <AnchorPane fx:id="ticket_form" layoutX="122.0" layoutY="164.0" prefHeight="555.0" prefWidth="850.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                            <children>
                               <AnchorPane layoutX="14.0" layoutY="14.0" prefHeight="225.0" prefWidth="822.0" stylesheets="@../css/client.css">
                                  <styleClass>
@@ -233,7 +233,10 @@
                                           <TableColumn fx:id="description_col" prefWidth="123.0" text="Description" />
                                           <TableColumn fx:id="priorite_col" prefWidth="92.0" text="Priorité" />
                                           <TableColumn fx:id="status_col" prefWidth="117.0" text="Status" />
-                                          <TableColumn fx:id="date_creation_col" prefWidth="119.0" text="Date Création " />
+                                          <TableColumn fx:id="rapport_col" prefWidth="119.0" text="Rapport" />
+                                          <TableColumn fx:id="action_col" prefWidth="120" text="Action" />
+
+                                          <TableColumn fx:id="date_creation_col" prefWidth="120." text="Date Création " />
                                       </columns>
                                        <styleClass>
                                           <String fx:value="column-header" />

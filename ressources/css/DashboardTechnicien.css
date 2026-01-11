@@ -1,0 +1,360 @@
+.top-form{
+	-fx-background-color: #fff;
+	-fx-border-color:#000;
+	-fx-border-width:.4px .4px .3px .4px;
+}
+.main-top-form{
+	-fx-background-color:#ddd;
+	-fx-border-color:#000;
+	-fx-border-width:0px 0px .4px 0px;
+
+}
+
+.title-label {
+	 -fx-font-size: 26px;
+    -fx-font-weight: bold;
+	-fx-font-family:"Tahoma";
+	
+}
+.text-label {
+     -fx-font-size: 14px;
+    -fx-font-family:"Berlin Sans FB";
+}
+
+.nav-form{
+	-fx-background-color:linear-gradient(to bottom right , #2f3f89,#9231b5);
+}
+
+.nav-btn{
+	-fx-background-color:transparent ;
+	-fx-cursor:hand;
+	-fx-text-fill:#fff;
+	-fx-font-size:15px;
+	-fx-font-family:"Arial";
+	-fx-padding: 10px 20px;
+}
+.nav-btn:hover {
+    -fx-background-color: rgba(255, 255, 255, 0.1);
+}
+
+
+.logout-btn{
+	-fx-background-color:#6a5fff;
+	-fx-background-radius:20px;
+	-fx-cursor:hand;
+	-fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-padding: 8px 20px;
+}
+.logout-btn:hover{
+	-fx-background-color:#8c84ff;
+	
+}
+
+
+.white-bg{
+	-fx-background-color:#fff;
+	-fx-background-radius:10px;
+	
+}
+
+.shadow{
+	-fx-effect:dropshadow(three-pass-box,rgb(0,0,0,0.4),10, 0, 0, 3);
+}
+
+
+
+.card{
+	-fx-background-color:linear-gradient(to right,#444857,#537e90);
+	-fx-background-radius:10px;
+	-fx-padding: 15px;
+    -fx-spacing: 10px;
+}
+
+.card:hover {
+    -fx-effect: dropshadow(three-pass-box, rgba(106, 95, 255, 0.4), 15, 0, 0, 5);
+    -fx-cursor: hand;
+}
+.card Label {
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 14px;
+}
+.card .title-label {
+    -fx-font-size: 25px;
+    -fx-font-weight: bold;
+}
+
+
+/* Fond des labels ou boutons status dans la card */
+.status-ouvert {
+    -fx-background-color: #F39C12;   /* Orange */
+    -fx-text-fill: white;
+    -fx-background-radius: 15px;
+    -fx-padding: 5px 12px;
+   
+}
+
+.status-en-cours {
+    -fx-background-color: #3498DB;   
+    -fx-text-fill: white;
+    -fx-background-radius: 15px;
+    -fx-padding: 5px 12px;
+    
+    
+}
+
+.status-resolu {
+    -fx-background-color: #27AE60;   
+    -fx-text-fill: white;
+    -fx-background-radius: 15px;
+    -fx-padding: 5px 12px;
+ 
+}
+
+.status-ferme {
+    -fx-background-color: #7F8C8D;   
+    -fx-text-fill: white;
+    -fx-background-radius: 15px;
+    -fx-padding: 5px 12px;
+  
+}
+
+.priorite-haute {
+  -fx-background-color: #E74C3C; /* Rouge vif */
+    -fx-text-fill: white;
+    -fx-background-radius: 10px;
+    -fx-padding: 5px 12px;
+}
+
+.priorite-moyenne {
+  -fx-background-color: #F39C12; /* Orange clair */
+    -fx-text-fill: black;
+    -fx-background-radius: 10px;
+    -fx-padding: 5px 12px;
+}
+
+.priorite-basse {
+    -fx-background-color: #3498DB; /* Bleu clair */
+    -fx-text-fill: white;
+    -fx-background-radius: 10px;
+    -fx-padding: 5px 12px;
+}
+
+.page {
+    -fx-background-color: transparent;
+    -fx-background-radius: 8px;
+    -fx-border-radius: 8px;
+    -fx-border-color:#a0a0a0;                  
+    -fx-border-width: 0 0 1.5px 0;
+    -fx-font-size: 13px;
+    -fx-text-fill: #754186;
+    -fx-padding: 8px 10px;
+    -fx-prompt-text-fill: #754186;
+    -fx-font-family:"Tahoma";
+}
+.combo-box {
+    -fx-background-color: transparent;
+    -fx-background-radius: 8px;
+    -fx-border-radius: 8px;
+    -fx-border-color: #a0a0a0;                  
+    -fx-border-width: 0 0 1.5px 0;
+    -fx-font-size: 13px;
+    -fx-text-fill: white;
+    -fx-padding: 8px 10px;
+    -fx-prompt-text-fill: #888888;
+    -fx-font-family:"Tahoma";
+}
+
+.combo-box:focused{
+	-fx-border-color: linear-gradient(to right, #2f3f89, #9231b5);
+    -fx-border-width: 0 0 3px 0;
+    -fx-background-color: rgba(255, 255, 255, 0.05);
+}
+
+.combo-box .list-cell {
+    -fx-background-color: transparent;
+    -fx-text-fill: white;
+}
+.combo-box .arrow {
+    -fx-background-color: white;
+}
+.combo-box .list-view {
+    -fx-background-color: #2c3e50;               /* Fond sombre comme ta page */
+    -fx-text-fill: white;
+}
+
+.combo-box .list-cell:hover {
+    -fx-background-color: rgba(146, 49, 181, 0.3); /* Violet léger au hover */
+}
+
+.enregistrer-btn{
+	  -fx-background-color:  #754186;
+	  -fx-background-radius:8px;
+	  -fx-cursor:hand;
+	  -fx-text-fill:#fff;
+	  -fx-font-size:14px;
+	  -fx-font-family:"Tahoma";
+	  }
+.enregistrer-btn:hover{
+	-fx-background-color:#c375dd;
+}
+
+.rapport-btn{
+	  -fx-background-color:  #9d6245;
+	  -fx-background-radius:8px;
+	  -fx-cursor:hand;
+	  -fx-text-fill:#fff;
+	  -fx-font-size:14px;
+	  -fx-font-family:"Tahoma";
+	  }
+.rapport-btn:hover{
+	-fx-background-color:#e49c7b;
+}
+
+
+.importer-btn {
+    -fx-background-color: #27AE60;           /* Vert émeraude */
+    -fx-background-radius: 10px;
+    -fx-padding: 10px 20px;
+    -fx-cursor: hand;
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+}
+
+.importer-btn:hover {
+    -fx-background-color: #2ECC71;           /* Vert plus clair */
+    -fx-scale-x: 1.03;
+    -fx-scale-y: 1.03;
+}
+
+/* Pressed – effet enfoncé */
+.importer-btn:pressed {
+    -fx-scale-x: 0.98;
+    -fx-scale-y: 0.98;
+    -fx-background-color: linear-gradient(to right, #3a3e4b, #466a7c); /* Un peu plus foncé au clic */
+}
+
+/* BOUTON RETOUR (flèche gauche – haut à gauche) ==================== */
+.retour-btn {
+    -fx-background-color: transparent;           /* Fond transparent au repos */
+    -fx-text-fill: #8c84ff;                      /* Violet clair comme demandé */
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+    -fx-padding: 12px 16px;                      /* Plus confortable au clic */
+    -fx-cursor: hand;
+    -fx-alignment: center-left;                  /* Aligne bien l’icône + texte */
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 3, 0, 0, 1); /* Ombre très légère */
+    -fx-transition: all 0.25s ease;              /* Animation fluide */
+}
+
+/* Hover – fond violet très léger + coins arrondis + ombre plus visible */
+.retour-btn:hover {
+    -fx-background-color: rgba(140, 132, 255, 0.25);  /* Fond violet clair transparent */
+    -fx-background-radius: 10px;
+    -fx-effect: dropshadow(gaussian, rgba(140, 132, 255, 0.4), 8, 0, 0, 3);
+    -fx-scale-x: 1.05;
+    -fx-scale-y: 1.05;
+}
+
+/* Pressed – effet enfoncé */
+.retour-btn:pressed {
+    -fx-scale-x: 0.97;
+    -fx-scale-y: 0.97;
+    -fx-background-color: rgba(140, 132, 255, 0.35);
+}
+
+/* Icône à l’intérieur (FontIcon Ikonli) */
+.retour-btn .font-icon {
+    -fx-fill: #8c84ff;                           /* Même violet clair */
+}
+
+.retour-btn:hover .font-icon {
+    -fx-fill: #a29bff;                           /* Légèrement plus clair au hover */
+}
+
+.text-field {
+    -fx-background-color: transparent;                    /* Fond transparent */
+    -fx-background-radius: 8px;
+    -fx-border-radius: 8px;
+    -fx-border-color: #a0a0a0;                            /* Bordure inférieure grise claire au repos */
+    -fx-border-width: 0 0 1.5px 0;                          /* Seulement en bas */
+    -fx-font-size: 13px;                           /* Ou "Tahoma" si tu préfères */
+    -fx-text-fill: white;
+    -fx-padding: 10px;
+    -fx-prompt-text-fill: #888888;                        
+    -fx-background-color: rgba(255, 255, 255, 0.05);     
+    -fx-effect: dropshadow(gaussian, rgba(146, 49, 181, 0.4), 8, 0, 0, 0); /* Ombre violette légère */
+}
+
+.text-field:focused {
+    -fx-border-color: linear-gradient(to right, #2f3f89, #9231b5);
+    -fx-border-width: 0 0 3px 0;                  /* Très visible au focus */
+    -fx-background-color: rgba(255, 255, 255, 0.05); /* Légère surbrillance */
+}
+
+
+/* Focus invisible pour éviter le contour bleu par défaut */
+.text-field:focused  {
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+}
+
+.scroll-pane {
+    -fx-background: transparent;
+    -fx-background-color: transparent;
+}
+
+.scroll-pane .viewport {
+    -fx-background-color: transparent;
+}
+
+
+.tile-pane {
+    -fx-background-color: #f5f5f5;
+    -fx-padding: 20px;
+}
+
+.table-view{
+	-fx-background-color:transparent;
+	-fx-padding:0px;
+	-fx-border-color:linear-gradient(to bottom right,#2f3f89,#9231b5);
+	-fx-border-radius:10px;
+	 -fx-alignment: CENTER !important;
+}
+.table-view .column-header-background{
+	-fx-background-color:linear-gradient(to bottom right,#2f3f89,#9231b5);
+	-fx-background-insets:0 0 0 0;
+    -fx-text-fill:#fff;
+	
+	
+}
+.table-view .column-header, .filter{
+	-fx-background-color:transparent;
+	-fx-size:50px;
+}
+.table-view .column-header, .label{
+	 -fx-text-fill:white !important;
+	 -fx-font-family:"Tahoma" !important;
+	 -fx-font-size: 15px !important;
+	
+	 
+}
+
+
+.close{
+		-fx-background-color:transparent;
+		-fx-cursor:hand;
+}
+
+.close:hover{
+		-fx-background-color:#e03f5a;
+		}
+		
+.minimize{
+		-fx-background-color:transparent;
+		-fx-cursor:hand;
+	}		
+.minimize:hover{
+		-fx-background-color:#efefef;
+}
